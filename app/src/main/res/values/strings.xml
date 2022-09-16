@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyApplication2</string>
+    <string name="app_name">Popular Movies Guide</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="title_register_title">REGISTER</string>
