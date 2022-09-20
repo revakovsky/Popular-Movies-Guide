@@ -3,7 +3,7 @@ package com.example.popularMoviesGuide.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularMoviesGuide.R
@@ -12,33 +12,39 @@ import com.example.popularMoviesGuide.viewmodel.MoviesViewModel
 
 class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
 
-    private val mViewModel : MoviesViewModel = MoviesViewModel()
+    private val moviesViewModel: MoviesViewModel = MoviesViewModel()
+    private val errorViewModel: MoviesViewModel = MoviesViewModel()
 
-    private lateinit var mMoviesRecycler : RecyclerView
-    private lateinit var mMoviesAdapter: CustomAdapter
-
+    private lateinit var moviesRecycler: RecyclerView
+    private lateinit var moviesAdapter: CustomAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
         initViews()
         initObservers()
-        mViewModel.getMovies()
+        moviesViewModel.getMovies()
     }
 
 
     private fun initViews() {
-        mMoviesRecycler = findViewById(R.id.recyclerview)
+        moviesRecycler = findViewById(R.id.recyclerview)
+        moviesRecycler.layoutManager = GridLayoutManager(this, 2)
 
-        // this creates a vertical layout Manager instead of list
-        mMoviesRecycler.layoutManager = GridLayoutManager(this, 2)
     }
 
     private fun initObservers() {
-        mViewModel.apply {
+        moviesViewModel.apply {
             movies.observe(this@MoviesActivity) {
-                mMoviesAdapter = CustomAdapter(it, this@MoviesActivity)
-                mMoviesRecycler.adapter = mMoviesAdapter
+                moviesAdapter = CustomAdapter(it, this@MoviesActivity)
+                moviesRecycler.adapter = moviesAdapter
+            }
+        }
+        errorViewModel.apply {
+            errorMessage.observe(this@MoviesActivity) {
+                it.getContentIfNotHandled()?.let {
+                    Toast.makeText(this@MoviesActivity, it, Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
@@ -46,12 +52,11 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
     override fun onBackPressed() {
         super.onBackPressed()
         this.finishAffinity()
-        Log.d("testLogs", "application is closed")
     }
 
-    override fun onItemClick(id: Int) {
+    override fun onItemClick(itemId: Int) {
         val intent = Intent(this@MoviesActivity, MoviesDetailsActivity::class.java)
-        intent.putExtra("id", id)
+        intent.putExtra("id", itemId)
         startActivity(intent)
     }
 }

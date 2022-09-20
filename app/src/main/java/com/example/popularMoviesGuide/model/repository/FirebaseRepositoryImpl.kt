@@ -7,10 +7,10 @@ import com.google.firebase.ktx.Firebase
 
 class FirebaseRepositoryImpl : FirebaseRepository{
 
-    private var database: DatabaseReference = Firebase.database.reference  //создали базу данных через загруженную библиотеку для записи в базу данных
+    private var database: DatabaseReference = Firebase.database.reference
 
     override fun updateUserData(firebaseUser: User, uId: String) {
-        database.child("users").child(uId).setValue(firebaseUser) //сохраняем нашего пользователя в базу данных firebase realtime
+        database.child("users").child(uId).setValue(firebaseUser)
 
     }
 }

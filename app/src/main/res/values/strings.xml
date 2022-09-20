@@ -3,5 +3,6 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="title_register_title">REGISTER</string>
-    <string name="API_key">248691836d283188a26679570aae0ef6</string>
+    <string name="movie_banner">movie banner</string>
+    <string name="movie_s_title">Movie\'s title</string>
 </resources>

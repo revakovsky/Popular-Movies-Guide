@@ -5,9 +5,9 @@ import com.example.popularMoviesGuide.model.repository.FirebaseRepository
 import com.example.popularMoviesGuide.model.repository.FirebaseRepositoryImpl
 
 class MainActivityViewModel {
-    private val mFirebaseRepository : FirebaseRepository = FirebaseRepositoryImpl()
+    private val firebaseRepository : FirebaseRepository = FirebaseRepositoryImpl()
 
     fun updateUserData(firebaseUser: User, uId: String) {
-        mFirebaseRepository.updateUserData(firebaseUser, uId)
+        firebaseRepository.updateUserData(firebaseUser, uId)
     }
 }

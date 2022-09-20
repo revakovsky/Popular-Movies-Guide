@@ -6,13 +6,8 @@ import com.example.popularMoviesGuide.data.MoviesDataBase
 import com.example.popularMoviesGuide.model.apis.ApiInterface
 import retrofit2.Call
 
-/**
- * Repository provides info taken from MovieDB API
-**/
+class MoviesDBRepositoryImpl : MoviesDBRepository {
 
-class MoviesDBRepository1Impl : MoviesDBRepository1 {
-
-    //include retrofit in our code
     private val apiInterface = ApiInterface.create()
 
     override fun getMovies() : Call<MoviesDataBase> {

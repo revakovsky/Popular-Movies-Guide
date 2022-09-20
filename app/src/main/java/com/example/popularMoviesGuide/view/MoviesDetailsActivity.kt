@@ -1,7 +1,6 @@
 package com.example.popularMoviesGuide.view
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -11,29 +10,29 @@ import com.example.popularMoviesGuide.viewmodel.MoviesViewModel
 import com.squareup.picasso.Picasso
 
 class MoviesDetailsActivity : AppCompatActivity() {
-    private val mViewModel : MoviesViewModel = MoviesViewModel()
 
-    private lateinit var mTitle: TextView
-    private lateinit var mReleaseDate: TextView
-    private lateinit var mScore: TextView
-    private lateinit var mOverview: TextView
-    private lateinit var mBanner: ImageView
+    private val moviesViewModel : MoviesViewModel = MoviesViewModel()
+
+    private lateinit var movieTitle: TextView
+    private lateinit var movieReleaseDate: TextView
+    private lateinit var movieScore: TextView
+    private lateinit var movieOverview: TextView
+    private lateinit var movieBanner: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies_details)
 
         val id = intent.getIntExtra("id", 0)
-        Log.d("TAG", "id: $id")
 
         initViews()
         initObservers()
-        mViewModel.getMovieDetails(id)
+        moviesViewModel.getMovieDetails(id)
 
     }
 
     private fun initObservers() {
-        mViewModel.apply {
+        moviesViewModel.apply {
             movieDetails.observe(this@MoviesDetailsActivity) {
                 setMovieInformation(it)
             }
@@ -41,19 +40,20 @@ class MoviesDetailsActivity : AppCompatActivity() {
     }
 
     private fun setMovieInformation(movieDetails: MovieDetails?) {
-        mTitle.text = movieDetails?.original_title
-        mReleaseDate.text = movieDetails?.release_date
-        mScore.text = movieDetails?.vote_average.toString()
-        mOverview.text = movieDetails?.overview
+        movieTitle.text = movieDetails?.original_title
+        movieReleaseDate.text = movieDetails?.release_date
+        movieScore.text = movieDetails?.vote_average.toString()
+        movieOverview.text = movieDetails?.overview
 
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + movieDetails?.backdrop_path).into(mBanner);
+        val path = "https://image.tmdb.org/t/p/w500/" + movieDetails?.backdrop_path
+        Picasso.get().load(path).into(movieBanner);
     }
 
     private fun initViews() {
-        mTitle = findViewById(R.id.movies_details_title)
-        mReleaseDate = findViewById(R.id.movies_details_body_container_data)
-        mScore = findViewById(R.id.movies_details_body_container_score)
-        mOverview = findViewById(R.id.movies_details_body_container_overview)
-        mBanner = findViewById(R.id.movies_details_image_banner)
+        movieTitle = findViewById(R.id.movies_details_title)
+        movieReleaseDate = findViewById(R.id.movies_details_release_date)
+        movieScore = findViewById(R.id.movies_details_score)
+        movieOverview = findViewById(R.id.movies_details_overview)
+        movieBanner = findViewById(R.id.movies_details_banner)
     }
 }
