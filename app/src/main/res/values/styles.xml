@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Styles for the view elements     -->
+    <style name="CustomToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/base_color</item>
+        <item name="titleTextColor">@color/title_text_color</item>
+        <item name="fontFamily">@font/nunito_sans_bold</item>
+    </style>
+
+    <style name="TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">@style/Text</item>
+    </style>
+
+    <style name="TextView_with_margin" parent="TextView">
+        <item name="android:layout_marginBottom">@dimen/margin_small_4dp</item>
+
+    </style>
+
+    <style name="TextView_Text_ColorGrey" parent="TextView_with_margin">
+        <item name="android:textAppearance">@style/Text_ColorGrey</item>
+    </style>
+
+    <style name="TextView_TextSmall_ColorGrey" parent="TextView_Text_ColorGrey">
+        <item name="android:textAppearance">@style/TextSmall</item>
+    </style>
+
+    <style name="TextView_MovieTitle" parent="TextView">
+        <item name="android:textAppearance">@style/MovieTitleText</item>
+    </style>
+
+    <!--    Styles for the text     -->
+    <style name="Text">
+        <item name="android:textSize">@dimen/text_size_regular</item>
+        <item name="fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textColor">@color/text_color_grey_dark</item>
+    </style>
+
+    <style name="Text_ColorGrey" parent="Text">
+        <item name="android:textColor">@color/text_color_grey</item>
+    </style>
+
+    <style name="TextSmall" parent="Text">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="fontFamily">@font/nunito_sans</item>
+    </style>
+
+    <style name="MovieTitleText">
+        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textColor">@color/title_text_color</item>
+        <item name="fontFamily">@font/nunito_sans_extrabold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+</resources>

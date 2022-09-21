@@ -1,9 +1,12 @@
 package com.example.popularMoviesGuide.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularMoviesGuide.R
@@ -18,14 +21,33 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
     private lateinit var moviesRecycler: RecyclerView
     private lateinit var moviesAdapter: CustomAdapter
 
+    lateinit var customToolbar: Toolbar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
+
+        customToolbar = findViewById(R.id.custom_toolbar)
+        setSupportActionBar(customToolbar)
+
         initViews()
         initObservers()
         moviesViewModel.getMovies()
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.tool_bar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.toolbar_search -> Toast.makeText(this, "searching", Toast.LENGTH_SHORT).show()
+            R.id.toolbar_favorite -> Toast.makeText(this, "show the favorite", Toast.LENGTH_SHORT).show()
+        }
+        return true
+    }
 
     private fun initViews() {
         moviesRecycler = findViewById(R.id.recyclerview)

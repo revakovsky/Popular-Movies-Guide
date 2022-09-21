@@ -34,7 +34,7 @@ class CustomAdapter(private val moviesList: List<Result?>,
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imageview)
+        val imageView: ImageView = itemView.findViewById(R.id.movie_preview_imageview)
         init {
             itemView.setOnClickListener{
                 moviesList[bindingAdapterPosition]?.id?.let(mItemClickListener::onItemClick)
