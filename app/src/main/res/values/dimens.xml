@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    dimensions  -->
+    <dimen name="margin_smallest_3dp">3dp</dimen>
+    <dimen name="margin_small_4dp">4dp</dimen>
+    <dimen name="margin_5dp">5dp</dimen>
+    <dimen name="margin_regular_8dp">8dp</dimen>
+
+    <!--    text size   -->
+    <dimen name="text_size_title">24sp</dimen>
+    <dimen name="text_size_regular">18sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Popular Movies Guide</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="title_register_title">REGISTER</string>
+    <string name="movie_banner">movie banner</string>
+    <string name="movie_s_title">Movie\'s title</string>
+    <string name="favorite">Favorite</string>
+    <string name="search_the_movie">Search the movie</string>
+    <string name="overview">Overview</string>
+    <string name="release_date">Release Date:</string>
+    <string name="date">8 june 2022</string>
+    <string name="score">Score:</string>
+    <string name="random_score_value">7.9</string>
+    <string name="movie_review">movie review text</string>
+</resources>
