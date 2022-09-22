@@ -6,7 +6,7 @@ open class ErrorHandler<String>(private val errorMessage: String) {
         private set // Allow external read but not write
 
     /**
-     * Returns the content and prevents its use again.
+     * Returns the content and prevents its usage again.
      */
     fun getContentIfNotHandled(): String? {
         return if (hasBeenHandled) {

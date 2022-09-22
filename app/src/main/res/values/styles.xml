@@ -7,7 +7,7 @@
         <item name="android:layout_height">?attr/actionBarSize</item>
         <item name="android:background">@color/base_color</item>
         <item name="titleTextColor">@color/title_text_color</item>
-        <item name="fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textAppearance">@style/CustomToolbarText</item>
     </style>
 
     <style name="TextView">
@@ -34,6 +34,10 @@
     </style>
 
     <!--    Styles for the text     -->
+    <style name="CustomToolbarText">
+        <item name="fontFamily">@font/nunito_sans_bold</item>
+    </style>
+
     <style name="Text">
         <item name="android:textSize">@dimen/text_size_regular</item>
         <item name="fontFamily">@font/nunito_sans_bold</item>

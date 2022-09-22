@@ -22,6 +22,8 @@
         <TextView
             android:id="@+id/movie_preview_title"
             style="@style/TextView_with_margin"
+            android:textColor="@color/title_text_color"
+            android:layout_marginTop="@dimen/margin_small_4dp"
             android:layout_width="match_parent"
             android:text="@string/movie_review"
             android:gravity="center"
