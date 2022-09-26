@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
-        startActivity(intentToAnotherScreen)
+//        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
+//        startActivity(intentToAnotherScreen)
 
-        //openRegistrationScreen()
+        openRegistrationScreen()
     }
 
     private fun openRegistrationScreen() {
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity, "something wrong with registration!", Toast.LENGTH_LONG).show()
             }
             else -> {
-                // do not anything
+                // TODO: write code for the occasion of unsuccessful registration
             }
         }
     }
