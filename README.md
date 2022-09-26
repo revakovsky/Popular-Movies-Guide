@@ -10,6 +10,7 @@
 and provides the catalog of newly popular movies
 and information about them. Before start using the app you need to pass the authorization
 process connected to the Firebase Authentication
+
 ---
 
 ## **Used Libraries**
@@ -20,6 +21,7 @@ process connected to the Firebase Authentication
 - [Retrofit 2](https://github.com/square/retrofit)
 - [Gson converter](https://github.com/square/retrofit/tree/master/retrofit-converters/gson)
 - [Picasso](https://square.github.io/picasso/)
+
 ---
 
 ## **Why this Project?**
@@ -29,6 +31,7 @@ to use and implement in his regular work process during app development.
 That is why I decided to create the app _Popular Movies Guide_ which
 covers some of these basic technologies, and I'll improve it more while I'll get my 
 personal growth as the Android programmer
+
 ---
 
 ## **What I've Learned?**
@@ -43,6 +46,7 @@ In this project I have gotten success in:
 - created and worked RecyclerView list
 - managed the MVVM architecture
 - created custom ToolBar.
+
 ---
 
 ## **How Can I Download the APK File?**
