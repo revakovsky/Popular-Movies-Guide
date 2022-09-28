@@ -1,6 +1,5 @@
 package com.example.popularMoviesGuide.model.repository
 
-import com.example.popularMoviesGuide.Constants
 import com.example.popularMoviesGuide.data.MovieDetails
 import com.example.popularMoviesGuide.data.MoviesDataBase
 import com.example.popularMoviesGuide.model.apis.ApiInterface
@@ -11,10 +10,14 @@ class MoviesDBRepositoryImpl : MoviesDBRepository {
     private val apiInterface = ApiInterface.create()
 
     override fun getMovies() : Call<MoviesDataBase> {
-        return apiInterface.getMovies(Constants.API_KEY, "en-US", 1)
+        return apiInterface.getMovies(API_KEY, "en-US", 1)
     }
 
     override fun getMovieDetails(id : Int) : Call<MovieDetails> {
-        return apiInterface.getMovieDetails(id, Constants.API_KEY)
+        return apiInterface.getMovieDetails(id, API_KEY)
+    }
+
+    companion object {
+        private const val API_KEY: String = "248691836d283188a26679570aae0ef6"
     }
 }
