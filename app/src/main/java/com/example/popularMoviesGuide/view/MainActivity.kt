@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.popularMoviesGuide.R
 import com.example.popularMoviesGuide.data.User
+import com.example.popularMoviesGuide.domain.usecase.OpenRegistrationScreenUseCase
 import com.example.popularMoviesGuide.viewmodel.MainActivityViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private val mainActivityViewModel : MainActivityViewModel = MainActivityViewModel()
+    private val openRegistrationScreenUseCase = OpenRegistrationScreenUseCase()
 
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -30,20 +32,21 @@ class MainActivity : AppCompatActivity() {
         startActivity(intentToAnotherScreen)
 
         //openRegistrationScreen()
+        openRegistrationScreenUseCase.startRegistrationScreen(signInLauncher)
     }
 
-    private fun openRegistrationScreen() {
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
-
-        val signInIntent = AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .build()
-        signInLauncher.launch(signInIntent)
-    }
+//    private fun openRegistrationScreen() {
+//        val providers = arrayListOf(
+//            AuthUI.IdpConfig.EmailBuilder().build(),
+//            AuthUI.IdpConfig.GoogleBuilder().build()
+//        )
+//
+//        val signInIntent = AuthUI.getInstance()
+//            .createSignInIntentBuilder()
+//            .setAvailableProviders(providers)
+//            .build()
+//        signInLauncher.launch(signInIntent)
+//    }
 
     private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
         when (result.resultCode) {
