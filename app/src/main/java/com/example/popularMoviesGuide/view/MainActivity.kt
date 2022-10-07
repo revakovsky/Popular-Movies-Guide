@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
         startActivity(intentToAnotherScreen)
 
-        //openRegistrationScreen()
+        openRegistrationScreen()
     }
 
     private fun openRegistrationScreen() {
