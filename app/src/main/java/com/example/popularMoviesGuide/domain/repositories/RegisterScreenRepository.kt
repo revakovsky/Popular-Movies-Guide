@@ -5,6 +5,6 @@ import androidx.activity.result.ActivityResultLauncher
 
 interface RegisterScreenRepository {
 
-    fun launchRegisterScreen(launcher: ActivityResultLauncher<Intent>)
+    fun launchRegistering(launcher: ActivityResultLauncher<Intent>)
 
 }

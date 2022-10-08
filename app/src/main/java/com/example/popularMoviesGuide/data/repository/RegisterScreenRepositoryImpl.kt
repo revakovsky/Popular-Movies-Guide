@@ -7,7 +7,7 @@ import com.firebase.ui.auth.AuthUI
 
 class RegisterScreenRepositoryImpl : RegisterScreenRepository {
 
-    override fun launchRegisterScreen(launcher: ActivityResultLauncher<Intent>) {
+    override fun launchRegistering(launcher: ActivityResultLauncher<Intent>) {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
             AuthUI.IdpConfig.GoogleBuilder().build()
@@ -17,6 +17,7 @@ class RegisterScreenRepositoryImpl : RegisterScreenRepository {
             .createSignInIntentBuilder()
             .setAvailableProviders(providers)
             .build()
+
         launcher.launch(signInIntent)
     }
 

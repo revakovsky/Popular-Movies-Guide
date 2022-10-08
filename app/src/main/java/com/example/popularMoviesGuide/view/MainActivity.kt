@@ -6,9 +6,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.popularMoviesGuide.R
 import com.example.popularMoviesGuide.data.User
+import com.example.popularMoviesGuide.data.repository.RegisterScreenRepositoryImpl
+import com.example.popularMoviesGuide.domain.repositories.RegisterScreenRepository
 import com.example.popularMoviesGuide.domain.usecase.OpenRegistrationScreenUseCase
 import com.example.popularMoviesGuide.viewmodel.MainActivityViewModel
-import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +17,9 @@ import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
     private val mainActivityViewModel : MainActivityViewModel = MainActivityViewModel()
-    private val openRegistrationScreenUseCase = OpenRegistrationScreenUseCase()
+
+    private val registerScreenRepository: RegisterScreenRepository = RegisterScreenRepositoryImpl()
+    private val openRegistrationScreenUseCase = OpenRegistrationScreenUseCase(registerScreenRepository)
 
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -28,11 +31,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
-        startActivity(intentToAnotherScreen)
+//        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
+//        startActivity(intentToAnotherScreen)
 
         //openRegistrationScreen()
-        openRegistrationScreenUseCase.startRegistrationScreen(signInLauncher)
+        openRegistrationScreenUseCase.launchRegistrationScreen(signInLauncher)
     }
 
 //    private fun openRegistrationScreen() {
