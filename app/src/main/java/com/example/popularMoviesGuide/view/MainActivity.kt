@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.popularMoviesGuide.R
-import com.example.popularMoviesGuide.data.User
 import com.example.popularMoviesGuide.data.repository.RegisterScreenRepositoryImpl
+import com.example.popularMoviesGuide.data.repository.UserDataRepositoryImpl
+import com.example.popularMoviesGuide.data.storage.UserStorage
+import com.example.popularMoviesGuide.data.storage.firebasestorage.FirebaseUserStorage
+import com.example.popularMoviesGuide.data.storage.models.FirebaseUser
+import com.example.popularMoviesGuide.domain.models.User
 import com.example.popularMoviesGuide.domain.repositories.RegisterScreenRepository
+import com.example.popularMoviesGuide.domain.repositories.UserDataRepository
 import com.example.popularMoviesGuide.domain.usecase.OpenRegistrationScreenUseCase
+import com.example.popularMoviesGuide.domain.usecase.UpdateUserDataUseCase
 import com.example.popularMoviesGuide.viewmodel.MainActivityViewModel
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
@@ -58,9 +64,14 @@ class MainActivity : AppCompatActivity() {
                 authenticatedUser?.let {
                     val email = it.email.toString()
                     val uid = it.uid
+                    //val firebaseUser = User(email, uid)
+
                     val firebaseUser = User(email, uid)
 
-                    mainActivityViewModel.updateUserData(firebaseUser, uid)
+
+//                    mainActivityViewModel.updateUserData(firebaseUser, uid)
+                    mainActivityViewModel.updateUserData(firebaseUser)
+
 
                     val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
                     startActivity(intentToAnotherScreen)
