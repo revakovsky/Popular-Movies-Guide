@@ -26,10 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val intentToAnotherScreen = Intent(this, MoviesActivity::class.java)
-        startActivity(intentToAnotherScreen)
-
-        //openRegistrationScreen()
+        openRegistrationScreen()
     }
 
     private fun openRegistrationScreen() {
