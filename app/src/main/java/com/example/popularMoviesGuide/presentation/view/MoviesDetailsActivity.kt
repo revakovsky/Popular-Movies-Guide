@@ -1,12 +1,12 @@
-package com.example.popularMoviesGuide.view
+package com.example.popularMoviesGuide.presentation.view
 
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.popularMoviesGuide.R
-import com.example.popularMoviesGuide.data.MovieDetails
-import com.example.popularMoviesGuide.viewmodel.MoviesViewModel
+import com.example.popularMoviesGuide.data.entity.MovieDetails
+import com.example.popularMoviesGuide.presentation.viewmodel.MoviesViewModel
 import com.squareup.picasso.Picasso
 
 class MoviesDetailsActivity : AppCompatActivity() {

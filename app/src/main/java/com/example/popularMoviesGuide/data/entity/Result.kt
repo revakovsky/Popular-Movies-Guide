@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.data
+package com.example.popularMoviesGuide.data.entity
 
 data class Result(
     val adult: Boolean,

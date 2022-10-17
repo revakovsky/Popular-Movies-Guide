@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.view.adapters
+package com.example.popularMoviesGuide.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +7,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularMoviesGuide.R
-import com.example.popularMoviesGuide.data.Result
+import com.example.popularMoviesGuide.data.entity.Result
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val moviesList: List<Result?>,
-                    val mItemClickListener: ItemClickListener
-                    ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+class CustomAdapter(
+    private val moviesList: List<Result?>,
+    val mItemClickListener: ItemClickListener
+) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
-    interface ItemClickListener{
+    interface ItemClickListener {
         fun onItemClick(itemId: Int)
     }
 
@@ -38,8 +39,9 @@ class CustomAdapter(private val moviesList: List<Result?>,
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.movie_preview_imageview)
         val moviePreviewTitle: TextView = itemView.findViewById(R.id.movie_preview_title)
+
         init {
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 moviesList[bindingAdapterPosition]?.id?.let(mItemClickListener::onItemClick)
             }
         }

@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.viewmodel
+package com.example.popularMoviesGuide.presentation.viewmodel
 
 open class ErrorHandler<String>(private val errorMessage: String) {
 

@@ -1,11 +1,10 @@
-package com.example.popularMoviesGuide.model.repository
+package com.example.popularMoviesGuide.trash
 
-import com.example.popularMoviesGuide.data.User
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class FirebaseRepositoryImpl : FirebaseRepository{
+class FirebaseRepositoryImpl : FirebaseRepository {
 
     private var database: DatabaseReference = Firebase.database.reference
 

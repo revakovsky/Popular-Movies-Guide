@@ -4,6 +4,6 @@ import com.example.popularMoviesGuide.domain.models.User
 
 interface UserDataRepository {
 
-    fun updateData(user: User)
+    fun updateUserData(user: User)
 
 }

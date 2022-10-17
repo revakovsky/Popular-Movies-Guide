@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".view.MoviesActivity">
+    android:background="@color/grey_lighter"
+    tools:context=".presentation.view.MoviesActivity">
 
-  <androidx.appcompat.widget.Toolbar
-      android:id="@+id/custom_toolbar"
-      style="@style/CustomToolbar"
-      />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
+        style="@style/CustomToolbar" />
 
-  <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/recyclerview"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      tools:itemCount="5"
-      tools:listitem="@layout/card_view_design" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:itemCount="5"
+        tools:listitem="@layout/card_view_design" />
 
 </LinearLayout>

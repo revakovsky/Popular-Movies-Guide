@@ -1,17 +1,17 @@
 package com.example.popularMoviesGuide.data.repository
 
+import com.example.popularMoviesGuide.data.mappers.UserMapper
 import com.example.popularMoviesGuide.data.storage.UserStorage
 import com.example.popularMoviesGuide.data.storage.firebasestorage.FirebaseUserStorage
-import com.example.popularMoviesGuide.data.storage.mappers.FirebaseUserMapper
 import com.example.popularMoviesGuide.domain.models.User
 import com.example.popularMoviesGuide.domain.repositories.UserDataRepository
 
-class UserDataRepositoryImpl : UserDataRepository {
+class UserDataRepositoryImpl(
+    private val mapper: UserMapper = UserMapper(),
+    private val userStorage: UserStorage = FirebaseUserStorage(),
+) : UserDataRepository {
 
-    private val mapper = FirebaseUserMapper()
-    private val userStorage: UserStorage = FirebaseUserStorage()
-
-    override fun updateData(user: User) {
+    override fun updateUserData(user: User) {
         userStorage.updateData(mapper.mapToFirebaseUser(user))
     }
 

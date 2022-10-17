@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PopularMoviesGuide">
         <activity
-            android:name="com.example.popularMoviesGuide.view.MoviesDetailsActivity"
+            android:name="com.example.popularMoviesGuide.presentation.view.MoviesDetailsActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.popularMoviesGuide.view.MoviesActivity"
+            android:name="com.example.popularMoviesGuide.presentation.view.MoviesActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.popularMoviesGuide.view.MainActivity"
+            android:name="com.example.popularMoviesGuide.presentation.view.MainActivity"
             android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>

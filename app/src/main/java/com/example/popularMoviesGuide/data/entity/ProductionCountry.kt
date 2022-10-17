@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.data
+package com.example.popularMoviesGuide.data.entity
 
 data class ProductionCountry(
     val iso_3166_1: String,

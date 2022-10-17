@@ -1,6 +1,4 @@
-package com.example.popularMoviesGuide.model.repository
-
-import com.example.popularMoviesGuide.data.User
+package com.example.popularMoviesGuide.trash
 
 /**
  * Repository saves the user's data to the Firebase Realtime Database

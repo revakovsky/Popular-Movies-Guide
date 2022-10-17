@@ -1,7 +1,7 @@
 package com.example.popularMoviesGuide.model.repository
 
-import com.example.popularMoviesGuide.data.MovieDetails
-import com.example.popularMoviesGuide.data.MoviesDataBase
+import com.example.popularMoviesGuide.data.entity.MovieDetails
+import com.example.popularMoviesGuide.data.entity.MoviesDataBase
 import retrofit2.Call
 
 /**

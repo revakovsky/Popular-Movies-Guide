@@ -2,23 +2,17 @@ package com.example.popularMoviesGuide.data.repository
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
+import com.example.popularMoviesGuide.data.storage.AuthStorage
+import com.example.popularMoviesGuide.data.storage.firebasestorage.FirebaseAuthStorage
 import com.example.popularMoviesGuide.domain.repositories.RegisterScreenRepository
-import com.firebase.ui.auth.AuthUI
 
-class RegisterScreenRepositoryImpl : RegisterScreenRepository {
 
-    override fun launchRegistering(launcher: ActivityResultLauncher<Intent>) {
-        val providers = arrayListOf(
-            AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build()
-        )
+class RegisterScreenRepositoryImpl(
+    private val authStorage: AuthStorage = FirebaseAuthStorage()
+) : RegisterScreenRepository {
 
-        val signInIntent = AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(providers)
-            .build()
-
-        launcher.launch(signInIntent)
+    override fun launchRegistrationScreen(launcher: ActivityResultLauncher<Intent>) {
+        authStorage.launchRegistrationScreen(launcher)
     }
 
 }

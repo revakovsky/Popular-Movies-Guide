@@ -13,4 +13,6 @@
     <string name="score">Score:</string>
     <string name="random_score_value">7.9</string>
     <string name="movie_review">movie review text</string>
+    <string name="success_registering">Successful registration!</string>
+    <string name="wrong_registering">Something went wrong with registration! Please, try to do it later!</string>
 </resources>

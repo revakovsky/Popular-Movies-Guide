@@ -1,17 +1,17 @@
-package com.example.popularMoviesGuide.view
+package com.example.popularMoviesGuide.presentation.view
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularMoviesGuide.R
-import com.example.popularMoviesGuide.view.adapters.CustomAdapter
-import com.example.popularMoviesGuide.viewmodel.MoviesViewModel
+import com.example.popularMoviesGuide.presentation.adapters.CustomAdapter
+import com.example.popularMoviesGuide.presentation.viewmodel.MoviesViewModel
 
 class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
 
@@ -42,9 +42,10 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.toolbar_search -> Toast.makeText(this, "searching", Toast.LENGTH_SHORT).show()
-            R.id.toolbar_favorite -> Toast.makeText(this, "show the favorite", Toast.LENGTH_SHORT).show()
+            R.id.toolbar_favorite -> Toast.makeText(this, "show the favorite", Toast.LENGTH_SHORT)
+                .show()
         }
         return true
     }

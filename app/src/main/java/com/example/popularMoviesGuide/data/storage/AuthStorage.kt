@@ -1,9 +1,9 @@
-package com.example.popularMoviesGuide.domain.repositories
+package com.example.popularMoviesGuide.data.storage
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 
-interface RegisterScreenRepository {
+interface AuthStorage {
 
     fun launchRegistrationScreen(launcher: ActivityResultLauncher<Intent>)
 

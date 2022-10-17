@@ -1,10 +1,10 @@
-package com.example.popularMoviesGuide.viewmodel
+package com.example.popularMoviesGuide.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.popularMoviesGuide.data.MovieDetails
-import com.example.popularMoviesGuide.data.MoviesDataBase
-import com.example.popularMoviesGuide.data.Result
+import com.example.popularMoviesGuide.data.entity.MovieDetails
+import com.example.popularMoviesGuide.data.entity.MoviesDataBase
+import com.example.popularMoviesGuide.data.entity.Result
 import com.example.popularMoviesGuide.model.repository.MoviesDBRepository
 import com.example.popularMoviesGuide.model.repository.MoviesDBRepositoryImpl
 import retrofit2.Call
@@ -22,7 +22,7 @@ class MoviesViewModel {
     private val moviesRepository: MoviesDBRepository = MoviesDBRepositoryImpl()
 
     private val _errorMessage = MutableLiveData<ErrorHandler<String>>()
-    val errorMessage : LiveData<ErrorHandler<String>>
+    val errorMessage: LiveData<ErrorHandler<String>>
         get() = _errorMessage
 
     fun getMovies() {

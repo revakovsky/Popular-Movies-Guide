@@ -4,10 +4,12 @@ import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher
 import com.example.popularMoviesGuide.domain.repositories.RegisterScreenRepository
 
-class OpenRegistrationScreenUseCase(private val registerScreenRepository: RegisterScreenRepository) {
+class OpenRegistrationScreenUseCase(
+    private val registerScreenRepository: RegisterScreenRepository,
+) {
 
-    fun launchRegistrationScreen(signInLauncher: ActivityResultLauncher<Intent>) {
-        registerScreenRepository.launchRegistering(signInLauncher)
+    fun invoke(signInLauncher: ActivityResultLauncher<Intent>) {
+        registerScreenRepository.launchRegistrationScreen(signInLauncher)
     }
 
 }
