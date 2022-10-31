@@ -15,11 +15,12 @@
             android:exported="true" />
         <activity
             android:name="com.example.popularMoviesGuide.presentation.view.MoviesActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/MoviesTheme" />
         <activity
             android:name="com.example.popularMoviesGuide.presentation.view.MainActivity"
-            android:theme="@style/SplashTheme"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

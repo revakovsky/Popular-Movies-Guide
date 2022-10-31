@@ -15,4 +15,5 @@
     <string name="movie_review">movie review text</string>
     <string name="success_registering">Successful registration!</string>
     <string name="wrong_registering">Something went wrong with registration! Please, try to do it later!</string>
+    <string name="try_register_one_more_time">try to register one more time</string>
 </resources>

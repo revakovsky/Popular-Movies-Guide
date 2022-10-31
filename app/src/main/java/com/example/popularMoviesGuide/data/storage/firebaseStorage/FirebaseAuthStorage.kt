@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.data.storage.firebasestorage
+package com.example.popularMoviesGuide.data.storage.firebaseStorage
 
 import android.content.Intent
 import androidx.activity.result.ActivityResultLauncher

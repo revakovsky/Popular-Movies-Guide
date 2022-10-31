@@ -32,6 +32,11 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
 
         initViews()
         initObservers()
+//        moviesViewModel.getMovies()
+    }
+
+    override fun onStart() {
+        super.onStart()
         moviesViewModel.getMovies()
     }
 

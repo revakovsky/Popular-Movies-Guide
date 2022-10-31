@@ -1,6 +1,6 @@
-package com.example.popularMoviesGuide.domain.models
+package com.example.popularMoviesGuide.data.models
 
-data class User(
+data class DataUser(
     val email: String,
     val uid: String,
     val name: String,

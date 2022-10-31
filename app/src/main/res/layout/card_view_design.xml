@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/movie_preview_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/margin_regular_8dp">
+    android:paddingBottom="@dimen/margin_regular_8dp"
+    tools:background="@color/background">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -27,8 +29,9 @@
         style="@style/TextView_with_margin"
         android:layout_width="match_parent"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="@dimen/margin_regular_8dp"
         android:gravity="center"
         android:text="@string/movie_review"
-        android:textColor="@color/title_text_color" />
+        android:textColor="@color/white" />
 
 </LinearLayout>

@@ -2,8 +2,10 @@ package com.example.popularMoviesGuide.data.storage
 
 import com.example.popularMoviesGuide.data.models.DataUser
 
-interface UserStorage {
+interface LocalStorage {
 
-    fun updateData(dataUser: DataUser)
+    fun saveUid(dataUser: DataUser)
+
+    fun getUid(): String
 
 }
