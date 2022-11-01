@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainViewModel
     private var isUidExist: Boolean = false
+    private var enteringCounter: Int = 0
 
     private val signInLauncher = registerForActivityResult(
         FirebaseAuthUIActivityResultContract()
@@ -30,22 +31,34 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initValues()
+        chooseAction()
+    }
+
+    private fun initValues() {
         mainViewModel =
             ViewModelProvider(
                 this, MainViewModelFactory(this)
             ).get(MainViewModel::class.java)
 
         isUidExist = mainViewModel.checkUid()
-
-        chooseAction()
+        enteringCounter = mainViewModel.getEnteringCounter()
     }
 
     private fun chooseAction() {
         if (isUidExist) intentToNextScreen(MoviesActivity())
-        else {
-            mainViewModel.launchRegistrationScreen(signInLauncher)
-            onRegisteringResult()
-        }
+        else if (enteringCounter == 0) launchRegistration()
+        else launchAnonymousSession()
+    }
+
+    private fun launchRegistration() {
+        mainViewModel.launchRegistrationScreen(signInLauncher)
+        onRegisteringResult()
+    }
+
+    private fun launchAnonymousSession() {
+        mainViewModel.saveEnteringCounter()
+        intentToNextScreen(MoviesActivity())
     }
 
     private fun onRegisteringResult() {
@@ -53,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             when (result) {
                 true -> intentToNextScreen(MoviesActivity())
 
-                false -> repeatRegistering()
+                false -> showRepeatButton()
 
                 else -> {
                     intentToNextScreen(MoviesActivity())
@@ -63,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun repeatRegistering() {
+    private fun showRepeatButton() {
         binding.apply {
             repeatAuthButton.visibility = View.VISIBLE
             repeatAuthButton.setOnClickListener {

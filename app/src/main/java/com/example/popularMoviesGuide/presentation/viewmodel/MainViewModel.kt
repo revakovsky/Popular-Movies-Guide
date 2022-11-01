@@ -7,10 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.popularMoviesGuide.domain.models.User
-import com.example.popularMoviesGuide.domain.usecase.GetUserUidUseCase
-import com.example.popularMoviesGuide.domain.usecase.OpenRegistrationScreenUseCase
-import com.example.popularMoviesGuide.domain.usecase.SaveUserUidUseCase
-import com.example.popularMoviesGuide.domain.usecase.UpdateUserDataUseCase
+import com.example.popularMoviesGuide.domain.usecase.*
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 
@@ -18,7 +15,9 @@ class MainViewModel(
     private val openRegistrationScreenUseCase: OpenRegistrationScreenUseCase,
     private val updateUserDataUseCase: UpdateUserDataUseCase,
     private val saveUserUidUseCase: SaveUserUidUseCase,
-    private val getUserUidUseCase: GetUserUidUseCase
+    private val getUserUidUseCase: GetUserUidUseCase,
+    private val getEnteringCounterUseCase: GetEnteringCounterUseCase,
+    private val saveEnteringCounterUseCase: SaveEnteringCounterUseCase
 ) : ViewModel() {
 
     private val _isSuccessfulRegistering = MutableLiveData<Boolean>()
@@ -27,6 +26,14 @@ class MainViewModel(
     fun checkUid(): Boolean {
         val userUid = getUserUidUseCase.invoke()
         return userUid.isNotBlank()
+    }
+
+    fun getEnteringCounter(): Int {
+        return getEnteringCounterUseCase.invoke()
+    }
+
+    fun saveEnteringCounter() {
+        saveEnteringCounterUseCase.invoke()
     }
 
     fun launchRegistrationScreen(launcher: ActivityResultLauncher<Intent>) {
@@ -47,6 +54,7 @@ class MainViewModel(
         val authenticatedUser: User = getAuthenticatedUser()
 
         saveUserUidUseCase.invoke(authenticatedUser)
+        if (authenticatedUser.isAnonymous) saveEnteringCounterUseCase.invoke()
 
         updateUserDataUseCase.invoke(
             User(

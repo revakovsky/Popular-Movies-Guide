@@ -18,4 +18,12 @@ class LocalRepositoryImpl(
         return localStorage.getUid()
     }
 
+    override fun saveUserEnteringCounter(counter: Int) {
+        localStorage.saveEnteringCounter(counter)
+    }
+
+    override fun getUserEnteringCounter(): Int {
+        return localStorage.getEnteringCounter()
+    }
+
 }

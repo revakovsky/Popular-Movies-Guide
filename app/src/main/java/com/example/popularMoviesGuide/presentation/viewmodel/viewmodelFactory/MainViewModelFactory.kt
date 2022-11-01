@@ -15,10 +15,7 @@ import com.example.popularMoviesGuide.data.storage.firebaseStorage.FirebaseUserS
 import com.example.popularMoviesGuide.data.storage.sharedprefStorage.SharedPrefStorage
 import com.example.popularMoviesGuide.domain.repositories.LocalRepository
 import com.example.popularMoviesGuide.domain.repositories.RemoteRepository
-import com.example.popularMoviesGuide.domain.usecase.GetUserUidUseCase
-import com.example.popularMoviesGuide.domain.usecase.OpenRegistrationScreenUseCase
-import com.example.popularMoviesGuide.domain.usecase.SaveUserUidUseCase
-import com.example.popularMoviesGuide.domain.usecase.UpdateUserDataUseCase
+import com.example.popularMoviesGuide.domain.usecase.*
 import com.example.popularMoviesGuide.presentation.viewmodel.MainViewModel
 
 class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
@@ -39,6 +36,8 @@ class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
     private val updateUserDataUseCase = UpdateUserDataUseCase(remoteRepository)
     private val saveUserUidUseCase = SaveUserUidUseCase(localRepository)
     private val getUserUidUseCase = GetUserUidUseCase(localRepository)
+    private val getEnteringCounterUseCase = GetEnteringCounterUseCase(localRepository)
+    private val saveEnteringCounterUseCase = SaveEnteringCounterUseCase(localRepository)
 
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -46,7 +45,9 @@ class MainViewModelFactory(context: Context) : ViewModelProvider.Factory {
             openRegistrationScreenUseCase,
             updateUserDataUseCase,
             saveUserUidUseCase,
-            getUserUidUseCase
+            getUserUidUseCase,
+            getEnteringCounterUseCase,
+            saveEnteringCounterUseCase
         ) as T
     }
 

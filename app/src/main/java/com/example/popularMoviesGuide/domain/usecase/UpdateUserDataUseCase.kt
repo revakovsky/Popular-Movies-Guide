@@ -8,7 +8,7 @@ class UpdateUserDataUseCase(
 ) {
 
     fun invoke(user: User) {
-        remoteRepository.updateUserData(user)
+        if (!user.isAnonymous) remoteRepository.updateUserData(user)
     }
 
 }

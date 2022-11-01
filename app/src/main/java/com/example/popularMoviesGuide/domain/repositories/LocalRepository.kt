@@ -8,4 +8,8 @@ interface LocalRepository {
 
     fun getUserUid(): String
 
+    fun saveUserEnteringCounter(counter: Int)
+
+    fun getUserEnteringCounter(): Int
+
 }

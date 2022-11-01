@@ -1,14 +1,13 @@
 package com.example.popularMoviesGuide.domain.usecase
 
-import com.example.popularMoviesGuide.domain.models.User
 import com.example.popularMoviesGuide.domain.repositories.LocalRepository
 
-class SaveUserUidUseCase(
+class GetEnteringCounterUseCase(
     private val localRepository: LocalRepository
 ) {
 
-    fun invoke(user: User) {
-        if (!user.isAnonymous) localRepository.saveUserUid(user)
+    fun invoke(): Int {
+        return localRepository.getUserEnteringCounter()
     }
 
 }

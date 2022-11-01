@@ -8,4 +8,8 @@ interface LocalStorage {
 
     fun getUid(): String
 
+    fun saveEnteringCounter(counter: Int)
+
+    fun getEnteringCounter(): Int
+
 }
