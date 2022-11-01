@@ -8,12 +8,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.popularMoviesGuide.R
 import com.example.popularMoviesGuide.databinding.ActivityMainBinding
 import com.example.popularMoviesGuide.makeToast
+import com.example.popularMoviesGuide.presentation.app.App
 import com.example.popularMoviesGuide.presentation.viewmodel.MainViewModel
 import com.example.popularMoviesGuide.presentation.viewmodel.viewmodelFactory.MainViewModelFactory
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
+    @Inject
+    lateinit var viewModelFactory: MainViewModelFactory
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var mainViewModel: MainViewModel
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        (applicationContext as App).appComponent.inject(this)
+
         initValues()
         chooseAction()
     }
@@ -38,8 +44,8 @@ class MainActivity : AppCompatActivity() {
     private fun initValues() {
         mainViewModel =
             ViewModelProvider(
-                this, MainViewModelFactory(this)
-            ).get(MainViewModel::class.java)
+                this, viewModelFactory)
+                .get(MainViewModel::class.java)
 
         isUidExist = mainViewModel.checkUid()
         enteringCounter = mainViewModel.getEnteringCounter()
