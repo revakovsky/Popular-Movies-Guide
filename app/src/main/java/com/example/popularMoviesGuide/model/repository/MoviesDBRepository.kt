@@ -1,7 +1,7 @@
 package com.example.popularMoviesGuide.model.repository
 
-import com.example.popularMoviesGuide.data.entity.MovieDetails
-import com.example.popularMoviesGuide.data.entity.MoviesDataBase
+import com.example.popularMoviesGuide.data.models.moviesDetails.MovieDetails
+import com.example.popularMoviesGuide.data.models.moviesList.DbResponseDto
 import retrofit2.Call
 
 /**
@@ -11,10 +11,10 @@ import retrofit2.Call
 interface MoviesDBRepository {
 
     /**
-     * Return the list of popular movies [MoviesDataBase]
+     * Return the list of popular movies [DbResponseDto]
      */
 
-    fun getMovies() : Call<MoviesDataBase>
+    fun getMovies() : Call<DbResponseDto>
 
     /** return the info for a single movie by returning [MovieDetails]
      * @param id - identification number of needed movie

@@ -31,4 +31,8 @@ class AppModule(private val context: Context) {
             saveEnteringCounterUseCase
         )
     }
+
+    fun provideMoviesViewModelFactory() {
+
+    }
 }

@@ -2,15 +2,15 @@ package com.example.popularMoviesGuide.data.storage.sharedprefStorage
 
 import android.content.Context
 import androidx.core.content.edit
-import com.example.popularMoviesGuide.data.models.DataUser
+import com.example.popularMoviesGuide.data.models.registering.DataUser
 import com.example.popularMoviesGuide.data.storage.LocalStorage
 
 class SharedPrefStorage(context: Context) : LocalStorage {
 
     private val sharedPref = context.getSharedPreferences(SHARED_PREF_USER, Context.MODE_PRIVATE)
 
-    override fun saveUid(dataUser: DataUser) {
-        sharedPref.edit { putString(SHARED_PREF_UID, dataUser.uid) }
+    override fun saveUid(user: DataUser) {
+        sharedPref.edit { putString(SHARED_PREF_UID, user.uid) }
     }
 
     override fun getUid(): String {

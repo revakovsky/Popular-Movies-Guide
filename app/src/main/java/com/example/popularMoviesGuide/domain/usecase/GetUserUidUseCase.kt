@@ -1,13 +1,13 @@
 package com.example.popularMoviesGuide.domain.usecase
 
-import com.example.popularMoviesGuide.domain.repositories.LocalRepository
+import com.example.popularMoviesGuide.domain.repositories.RegisteringRepository
 
 class GetUserUidUseCase(
-    private val localRepository: LocalRepository
+    private val registeringRepository: RegisteringRepository
 ) {
 
     fun invoke(): String {
-        return localRepository.getUserUid()
+        return registeringRepository.getUserUid()
     }
 
 }

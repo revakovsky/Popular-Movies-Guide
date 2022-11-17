@@ -1,14 +1,14 @@
 package com.example.popularMoviesGuide.domain.usecase
 
-import com.example.popularMoviesGuide.domain.models.User
-import com.example.popularMoviesGuide.domain.repositories.RemoteRepository
+import com.example.popularMoviesGuide.domain.models.registering.User
+import com.example.popularMoviesGuide.domain.repositories.RegisteringRepository
 
 class UpdateUserDataUseCase(
-    private val remoteRepository: RemoteRepository
+    private val registeringRepository: RegisteringRepository
 ) {
 
     fun invoke(user: User) {
-        if (!user.isAnonymous) remoteRepository.updateUserData(user)
+        if (!user.isAnonymous) registeringRepository.updateUserData(user)
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.data.models
+package com.example.popularMoviesGuide.data.models.registering
 
 data class DataUser(
     val email: String,

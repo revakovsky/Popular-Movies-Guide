@@ -7,11 +7,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.popularMoviesGuide.R
-import com.example.popularMoviesGuide.data.entity.Result
+import com.example.popularMoviesGuide.data.models.moviesList.MovieDto
 import com.squareup.picasso.Picasso
 
 class CustomAdapter(
-    private val moviesList: List<Result?>,
+    private val moviesList: List<MovieDto?>,
     val mItemClickListener: ItemClickListener
 ) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 

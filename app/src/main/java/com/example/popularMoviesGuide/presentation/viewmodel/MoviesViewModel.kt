@@ -2,9 +2,9 @@ package com.example.popularMoviesGuide.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.popularMoviesGuide.data.entity.MovieDetails
-import com.example.popularMoviesGuide.data.entity.MoviesDataBase
-import com.example.popularMoviesGuide.data.entity.Result
+import com.example.popularMoviesGuide.data.models.moviesDetails.MovieDetails
+import com.example.popularMoviesGuide.data.models.moviesList.DbResponseDto
+import com.example.popularMoviesGuide.data.models.moviesList.MovieDto
 import com.example.popularMoviesGuide.model.repository.MoviesDBRepository
 import com.example.popularMoviesGuide.model.repository.MoviesDBRepositoryImpl
 import retrofit2.Call
@@ -13,8 +13,8 @@ import retrofit2.Response
 
 class MoviesViewModel {
 
-    private val _movies = MutableLiveData<List<Result?>>()
-    val movies: LiveData<List<Result?>> = _movies
+    private val _movies = MutableLiveData<List<MovieDto?>>()
+    val movies: LiveData<List<MovieDto?>> = _movies
 
     private val _movieDetails = MutableLiveData<MovieDetails>()
     val movieDetails: LiveData<MovieDetails> = _movieDetails
@@ -27,15 +27,15 @@ class MoviesViewModel {
 
     fun getMovies() {
         val response = moviesRepository.getMovies()
-        response.enqueue(object : Callback<MoviesDataBase> {
+        response.enqueue(object : Callback<DbResponseDto> {
             override fun onResponse(
-                call: Call<MoviesDataBase>,
-                response: Response<MoviesDataBase>
+                call: Call<DbResponseDto>,
+                response: Response<DbResponseDto>
             ) {
                 _movies.postValue(response.body()?.results)
             }
 
-            override fun onFailure(call: Call<MoviesDataBase>, t: Throwable) {
+            override fun onFailure(call: Call<DbResponseDto>, t: Throwable) {
                 _errorMessage.value = ErrorHandler("fail ${t.message}")
             }
         })

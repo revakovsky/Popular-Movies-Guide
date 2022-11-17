@@ -48,12 +48,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // required to avoid crash on Android 12 API 31
-    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    def work_version = "2.7.1"
+    implementation "androidx.work:work-runtime-ktx:$work_version"
 
     // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.0.6'
+    implementation 'com.google.android.gms:play-services-auth:20.3.0'
 
     // for adding recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'

@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.domain.models
+package com.example.popularMoviesGuide.domain.models.registering
 
 data class User(
     val email: String,

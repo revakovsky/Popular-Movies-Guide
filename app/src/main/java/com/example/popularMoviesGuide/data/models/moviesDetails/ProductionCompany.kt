@@ -1,4 +1,4 @@
-package com.example.popularMoviesGuide.data.entity
+package com.example.popularMoviesGuide.data.models.moviesDetails
 
 data class ProductionCompany(
     val id: Int,

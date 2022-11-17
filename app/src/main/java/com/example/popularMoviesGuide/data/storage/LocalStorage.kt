@@ -1,10 +1,10 @@
 package com.example.popularMoviesGuide.data.storage
 
-import com.example.popularMoviesGuide.data.models.DataUser
+import com.example.popularMoviesGuide.data.models.registering.DataUser
 
 interface LocalStorage {
 
-    fun saveUid(dataUser: DataUser)
+    fun saveUid(user: DataUser)
 
     fun getUid(): String
 

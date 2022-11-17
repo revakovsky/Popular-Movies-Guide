@@ -1,23 +1,23 @@
 package com.example.popularMoviesGuide.domain.usecase
 
-import com.example.popularMoviesGuide.domain.repositories.LocalRepository
+import com.example.popularMoviesGuide.domain.repositories.RegisteringRepository
 
 class SaveEnteringCounterUseCase(
-    private val localRepository: LocalRepository
+    private val registeringRepository: RegisteringRepository
 ) {
 
     private val amountAnonymousSessions: Int = 2
     private var enteringCounter: Int = 0
 
     fun invoke() {
-        enteringCounter = localRepository.getUserEnteringCounter()
+        enteringCounter = registeringRepository.getUserEnteringCounter()
 
         if (enteringCounter < amountAnonymousSessions) {
             enteringCounter++
-            localRepository.saveUserEnteringCounter(enteringCounter)
+            registeringRepository.saveUserEnteringCounter(enteringCounter)
         } else {
             enteringCounter = 0
-            localRepository.saveUserEnteringCounter(enteringCounter)
+            registeringRepository.saveUserEnteringCounter(enteringCounter)
         }
     }
 

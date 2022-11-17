@@ -20,26 +20,16 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
 
     private lateinit var moviesRecycler: RecyclerView
     private lateinit var moviesAdapter: CustomAdapter
-
     lateinit var customToolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
 
-        customToolbar = findViewById(R.id.custom_toolbar)
-        setSupportActionBar(customToolbar)
-
         initViews()
         initObservers()
-//        moviesViewModel.getMovies()
-    }
-
-    override fun onStart() {
-        super.onStart()
         moviesViewModel.getMovies()
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.tool_bar_menu, menu)
@@ -49,16 +39,16 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.toolbar_search -> Toast.makeText(this, "searching", Toast.LENGTH_SHORT).show()
-            R.id.toolbar_favorite -> Toast.makeText(this, "show the favorite", Toast.LENGTH_SHORT)
-                .show()
+            R.id.toolbar_favorite -> Toast.makeText(this, "show the favorite", Toast.LENGTH_SHORT).show()
         }
         return true
     }
 
     private fun initViews() {
+        customToolbar = findViewById(R.id.custom_toolbar)
+        setSupportActionBar(customToolbar)
         moviesRecycler = findViewById(R.id.recyclerview)
         moviesRecycler.layoutManager = GridLayoutManager(this, 2)
-
     }
 
     private fun initObservers() {
@@ -77,14 +67,15 @@ class MoviesActivity : AppCompatActivity(), CustomAdapter.ItemClickListener {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        this.finishAffinity()
-    }
-
     override fun onItemClick(itemId: Int) {
         val intent = Intent(this@MoviesActivity, MoviesDetailsActivity::class.java)
         intent.putExtra("id", itemId)
         startActivity(intent)
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        this.finishAffinity()
+    }
+
 }

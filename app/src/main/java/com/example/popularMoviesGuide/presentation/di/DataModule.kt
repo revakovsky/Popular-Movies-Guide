@@ -1,18 +1,16 @@
 package com.example.popularMoviesGuide.presentation.di
 
 import android.content.Context
-import com.example.popularMoviesGuide.data.mappers.DataUserMapper
-import com.example.popularMoviesGuide.data.mappers.DataUserMapperImpl
+import com.example.popularMoviesGuide.data.mappers.UserMapper
+import com.example.popularMoviesGuide.data.mappers.UserMapperImpl
 import com.example.popularMoviesGuide.data.repository.LocalRepositoryImpl
-import com.example.popularMoviesGuide.data.repository.RemoteRepositoryImpl
+import com.example.popularMoviesGuide.data.repository.RegisteringRepositoryImpl
 import com.example.popularMoviesGuide.data.storage.AuthStorage
 import com.example.popularMoviesGuide.data.storage.LocalStorage
-import com.example.popularMoviesGuide.data.storage.UserStorage
 import com.example.popularMoviesGuide.data.storage.firebaseStorage.FirebaseAuthStorage
-import com.example.popularMoviesGuide.data.storage.firebaseStorage.FirebaseUserStorage
 import com.example.popularMoviesGuide.data.storage.sharedprefStorage.SharedPrefStorage
 import com.example.popularMoviesGuide.domain.repositories.LocalRepository
-import com.example.popularMoviesGuide.domain.repositories.RemoteRepository
+import com.example.popularMoviesGuide.domain.repositories.RegisteringRepository
 import dagger.Module
 import dagger.Provides
 
@@ -20,13 +18,8 @@ import dagger.Provides
 class DataModule {
 
     @Provides
-    fun provideDataUserMapper(): DataUserMapper {
-        return DataUserMapperImpl()
-    }
-
-    @Provides
-    fun provideUserStorage(): UserStorage {
-        return FirebaseUserStorage()
+    fun provideDataUserMapper(): UserMapper {
+        return UserMapperImpl()
     }
 
     @Provides
@@ -40,20 +33,17 @@ class DataModule {
     }
 
     @Provides
-    fun provideRemoteRepository(
-        mapper: DataUserMapper,
-        userStorage: UserStorage,
-        authStorage: AuthStorage
-    ): RemoteRepository {
-        return RemoteRepositoryImpl(mapper, userStorage, authStorage)
+    fun provideRegisteringRepository(
+        mapper: UserMapper,
+        authStorage: AuthStorage,
+        localStorage: LocalStorage
+    ): RegisteringRepository {
+        return RegisteringRepositoryImpl(mapper, authStorage, localStorage)
     }
 
     @Provides
-    fun provideLocalRepository(
-        mapper: DataUserMapper,
-        localStorage: LocalStorage
-    ): LocalRepository {
-        return LocalRepositoryImpl(mapper, localStorage)
+    fun provideLocalRepository(): LocalRepository {
+        return LocalRepositoryImpl()
     }
 
 }

@@ -1,7 +1,7 @@
 package com.example.popularMoviesGuide.presentation.di
 
 import com.example.popularMoviesGuide.domain.repositories.LocalRepository
-import com.example.popularMoviesGuide.domain.repositories.RemoteRepository
+import com.example.popularMoviesGuide.domain.repositories.RegisteringRepository
 import com.example.popularMoviesGuide.domain.usecase.*
 import dagger.Module
 import dagger.Provides
@@ -11,44 +11,44 @@ class DomainModule {
 
     @Provides
     fun provideOpenRegistrationScreenUseCase(
-        remoteRepository: RemoteRepository
+        registeringRepository: RegisteringRepository
     ): OpenRegistrationScreenUseCase {
-        return OpenRegistrationScreenUseCase(remoteRepository)
+        return OpenRegistrationScreenUseCase(registeringRepository)
     }
 
     @Provides
     fun provideUpdateUserDataUseCase(
-        remoteRepository: RemoteRepository
+        registeringRepository: RegisteringRepository
     ): UpdateUserDataUseCase {
-        return UpdateUserDataUseCase(remoteRepository)
+        return UpdateUserDataUseCase(registeringRepository)
     }
 
     @Provides
     fun provideSaveUserUidUseCase(
-        localRepository: LocalRepository
+        registeringRepository: RegisteringRepository
     ): SaveUserUidUseCase {
-        return SaveUserUidUseCase(localRepository)
+        return SaveUserUidUseCase(registeringRepository)
     }
 
     @Provides
     fun provideGetUserUidUseCase(
-        localRepository: LocalRepository
+        registeringRepository: RegisteringRepository
     ): GetUserUidUseCase {
-        return GetUserUidUseCase(localRepository)
+        return GetUserUidUseCase(registeringRepository)
     }
 
     @Provides
     fun provideGetEnteringCounterUseCase(
-        localRepository: LocalRepository
+        registeringRepository: RegisteringRepository
     ): GetEnteringCounterUseCase {
-        return GetEnteringCounterUseCase(localRepository)
+        return GetEnteringCounterUseCase(registeringRepository)
     }
 
     @Provides
     fun provideSaveEnteringCounterUseCase(
-        localRepository: LocalRepository
+        registeringRepository: RegisteringRepository
     ): SaveEnteringCounterUseCase {
-        return SaveEnteringCounterUseCase(localRepository)
+        return SaveEnteringCounterUseCase(registeringRepository)
     }
 
 }
