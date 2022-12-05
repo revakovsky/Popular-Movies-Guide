@@ -30,11 +30,6 @@ object Dependencies {
     private const val versionDagger = "2.44"
     private const val versionJavax = "1"
 
-    // Testing
-    private const val versionJUnit = "4.13.2"
-    private const val versionAndroidJUnit = "1.1.3"
-    private const val versionEspresso = "3.4.0"
-
     // ProjectPlugins
     private const val versionGoogleServices = "4.3.14"
 
@@ -76,12 +71,6 @@ object Dependencies {
 
         // added portable dependency injection annotations that can be used by any dependency injection framework
         const val javax = "javax.inject:javax.inject:$versionJavax"
-    }
-
-    object Test {
-        const val jUnit = "junit:junit:$versionJUnit"
-        const val androidJUnit = "androidx.test.ext:junit:$versionAndroidJUnit"
-        const val espresso = "androidx.test.espresso:espresso-core:$versionEspresso"
     }
 
     object ProjectPlugins {

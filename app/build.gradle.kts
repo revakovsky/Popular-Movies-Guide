@@ -51,11 +51,6 @@ dependencies {
     // Required to avoid crash on Android 12 API 31
     implementation(Dependencies.Android.workConverter)
 
-    // Testing Implementation
-    testImplementation(Dependencies.Test.jUnit)
-    androidTestImplementation(Dependencies.Test.androidJUnit)
-    androidTestImplementation(Dependencies.Test.espresso)
-
     // Firebase platform
     implementation(Dependencies.Firebase.firebaseBom)
     implementation(Dependencies.Firebase.firebaseAuth)
