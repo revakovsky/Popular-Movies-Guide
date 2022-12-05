@@ -1,7 +1,7 @@
 object Dependencies {
 
     // Firebase
-    private const val versionBom = "30.0.1"
+    private const val versionBom = "31.1.0"
     private const val versionAuth = "7.2.0"
     private const val versionDatabase = "20.0.6"
     private const val versionGms = "20.3.0"
