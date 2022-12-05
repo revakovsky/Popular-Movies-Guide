@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.PopularMoviesGuide" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
 
@@ -15,13 +15,29 @@
         <!-- Status bar color. -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/base_color</item>
 
         <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/title_text_color</item>
+        <item name="android:textAppearance">@style/MovieTitleText</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.PopularMoviesGuide">
         <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="MoviesTheme" parent="Theme.PopularMoviesGuide">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="AuthScreenTheme" parent="Theme.PopularMoviesGuide">
+        <item name="android:windowBackground">@drawable/auth_background</item>
+        <item name="android:scaleGravity">center</item>
+        <item name="android:textColorHint">@color/title_text_color</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:colorButtonNormal">@color/base_color</item>
     </style>
 
 </resources>

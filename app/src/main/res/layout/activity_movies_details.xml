@@ -1,104 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MoviesDetailsActivity">
+    android:background="@color/background"
+    android:fillViewport="true">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/movies_details_title"
-        style="@style/TextView_MovieTitle"
-        android:layout_marginTop="@dimen/margin_regular_8dp"
-        android:text="@string/movie_s_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/movies_details_header_container_card"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_regular_8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movies_details_title">
+        android:paddingBottom="24dp"
+        tools:context=".presentation.view.MoviesDetailsActivity">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/movies_details_banner"
-            android:layout_width="400dp"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:elevation="@dimen/margin_smallest_3dp"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movies_details_title"
+            style="@style/TextView_MovieTitle"
+            android:layout_marginTop="@dimen/margin_regular_8dp"
+            android:text="@string/movie_s_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/movies_details_header_container_card" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/movies_details_body_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_regular_8dp"
-        android:elevation="@dimen/margin_smallest_3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/movies_details_header_container_card">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/movies_details_body_container_constraint"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movies_details_header_container_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp">
+            android:layout_margin="@dimen/margin_regular_8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movies_details_title">
 
-            <TextView
-                android:id="@+id/movies_details_body_container_card_overview"
-                style="@style/TextView"
-                android:layout_marginBottom="8dp"
-                android:text="@string/overview"
-                android:textSize="@dimen/text_size_title"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/movies_details_banner"
+                android:layout_width="400dp"
+                android:layout_height="300dp"
+                android:elevation="@dimen/margin_smallest_3dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@id/movies_details_header_container_card" />
 
-            <TextView
-                android:id="@+id/movies_details_body_container_data_label"
-                style="@style/TextView"
-                android:text="@string/release_date"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_card_overview" />
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/movies_details_release_date"
-                style="@style/TextView_Text_ColorGrey"
-                android:text="@string/date"
-                android:layout_marginStart="@dimen/margin_small_4dp"
-                app:layout_constraintStart_toEndOf="@id/movies_details_body_container_data_label"
-                app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_card_overview" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movies_details_body_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_regular_8dp"
+            android:elevation="@dimen/margin_smallest_3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movies_details_header_container_card">
 
-            <TextView
-                android:id="@+id/movies_details_body_container_score_label"
-                style="@style/TextView"
-                android:text="@string/score"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_data_label" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/movies_details_body_container_constraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:padding="4dp">
 
-            <TextView
-                android:id="@+id/movies_details_score"
-                style="@style/TextView_Text_ColorGrey"
-                android:text="@string/random_score_value"
-                android:layout_marginStart="@dimen/margin_small_4dp"
-                app:layout_constraintStart_toEndOf="@id/movies_details_body_container_score_label"
-                app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_data_label" />
+                <TextView
+                    android:id="@+id/movies_details_body_container_card_overview"
+                    style="@style/TextView"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/overview"
+                    android:textSize="@dimen/text_size_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/movies_details_overview"
-                style="@style/TextView_TextSmall_ColorGrey"
-                android:text="@string/movie_review"
-                android:layout_marginTop="@dimen/margin_5dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_score_label" />
+                <TextView
+                    android:id="@+id/movies_details_body_container_data_label"
+                    style="@style/TextView"
+                    android:text="@string/release_date"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_card_overview" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/movies_details_release_date"
+                    style="@style/TextView_Text_ColorGrey"
+                    android:layout_marginStart="@dimen/margin_small_4dp"
+                    android:text="@string/date"
+                    app:layout_constraintStart_toEndOf="@id/movies_details_body_container_data_label"
+                    app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_card_overview" />
 
-    </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/movies_details_body_container_score_label"
+                    style="@style/TextView"
+                    android:text="@string/score"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_data_label" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/movies_details_score"
+                    style="@style/TextView_Text_ColorGrey"
+                    android:layout_marginStart="@dimen/margin_small_4dp"
+                    android:text="@string/random_score_value"
+                    app:layout_constraintStart_toEndOf="@id/movies_details_body_container_score_label"
+                    app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_data_label" />
+
+                <TextView
+                    android:id="@+id/movies_details_overview"
+                    style="@style/TextView_TextSmall_ColorGrey"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:text="@string/movie_review"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movies_details_body_container_score_label" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
